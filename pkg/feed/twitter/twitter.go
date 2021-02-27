@@ -1,34 +1,36 @@
 package twitter
 
-/*
+// OAuth2
 
-config := oauth1.NewConfig("consumerKey", "consumerSecret")
-token := oauth1.NewToken("accessToken", "accessSecret")
-httpClient := config.Client(oauth1.NoContext, token)
+import (
+	"log"
 
-// Twitter client
-client := twitter.NewClient(httpClient)
+	"github.com/dghubble/go-twitter/twitter"
+	"github.com/spf13/viper"
+	"golang.org/x/oauth2"
+	"golang.org/x/oauth2/clientcredentials"
+)
 
-// Home Timeline
-tweets, resp, err := client.Timelines.HomeTimeline(&twitter.HomeTimelineParams{
-    Count: 20,
-})
+var creds *viper.Viper
 
-// Send a Tweet
-tweet, resp, err := client.Statuses.Update("just setting up my twttr", nil)
+func shit() {
+	// oauth2 configures a client that uses app credentials to keep a fresh token
+	config := &clientcredentials.Config{
+		ClientID:     creds.GetString("twitterapikey"),
+		ClientSecret: creds.GetString("twittersecret"),
+		TokenURL:     "https://api.twitter.com/oauth2/token",
+	}
+	// http.Client will automatically authorize Requests
+	httpClient := config.Client(oauth2.NoContext)
 
-// Status Show
-tweet, resp, err := client.Statuses.Show(585613041028431872, nil)
-
-// Search Tweets
-search, resp, err := client.Search.Tweets(&twitter.SearchTweetParams{
-    Query: "gopher",
-})
-
-// User Show
-user, resp, err := client.Users.Show(&twitter.UserShowParams{
-    ScreenName: "dghubble",
-})
-
-// Followers
-followers, resp, err := client.Followers.List(&twitter.FollowerListParams{}) */
+	// Twitter client
+	client := twitter.NewClient(httpClient)
+}
+func init() {
+    creds = viper.New()
+    creds.SetConfigName("creds")
+    creds.AddConfigPath(".")
+    if err := creds.ReadInConfig(); err != nil {
+        log.Fatal(err)
+    }
+}
