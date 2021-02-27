@@ -1,3 +1,7 @@
+package twitter
+
+/*
+
 config := oauth1.NewConfig("consumerKey", "consumerSecret")
 token := oauth1.NewToken("accessToken", "accessSecret")
 httpClient := config.Client(oauth1.NoContext, token)
@@ -27,4 +31,4 @@ user, resp, err := client.Users.Show(&twitter.UserShowParams{
 })
 
 // Followers
-followers, resp, err := client.Followers.List(&twitter.FollowerListParams{})
+followers, resp, err := client.Followers.List(&twitter.FollowerListParams{}) */
