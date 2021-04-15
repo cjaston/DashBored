@@ -16,7 +16,6 @@ import (
 func main() {
 	// app, _ := newrelic.NewApplication(
 	// 	newrelic.ConfigAppName("DashBored"),
-	// 	newrelic.ConfigLicense("9ce11b03787712c78fd02382341653540348NRAL"),
 	// 	newrelic.ConfigDistributedTracerEnabled(true),
 	// )
 	// app.Shutdown(1)
