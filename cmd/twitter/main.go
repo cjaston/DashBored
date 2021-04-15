@@ -1,10 +1,6 @@
 package main
 
 import (
-	// "bufio"
-	// "fmt"
-	// "log"
-	// "os"
 	"bufio"
 	"fmt"
 	"log"
@@ -14,11 +10,6 @@ import (
 )
 
 func main() {
-	// app, _ := newrelic.NewApplication(
-	// 	newrelic.ConfigAppName("DashBored"),
-	// 	newrelic.ConfigDistributedTracerEnabled(true),
-	// )
-	// app.Shutdown(1)
 	twitter.UserAuth()
 	fmt.Println("Enter a Twitter handle: ")
 	reader := bufio.NewReader(os.Stdin)
