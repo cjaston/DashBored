@@ -19,6 +19,7 @@ func GetTweets(handle string) {
 		ClientSecret: creds.GetString("twittersecret"),
 		TokenURL:     "https://api.twitter.com/oauth2/token",
 	}
+
 	// http.Client will automatically authorize Requests
 	httpClient := config.Client(oauth2.NoContext)
 
@@ -59,7 +60,7 @@ func GetTweets(handle string) {
 		for _, y := range x.Trends {
 
 			fmt.Printf(`"%s" `, y.Name)
-			fmt.Println(y.TweetVolume, "NEW TWEETS \n")
+			fmt.Println(y.TweetVolume, "NEW TWEETS")
 		}
 	}
 }
