@@ -10,8 +10,11 @@ import (
 
 func main() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	twitter.UserAuth()
 	fmt.Println("Enter a Twitter handle: ")
+=======
+>>>>>>> parent of 4592dbb (finalized twitter API calls)
 =======
 >>>>>>> parent of 4592dbb (finalized twitter API calls)
 	reader := bufio.NewReader(os.Stdin)

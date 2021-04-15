@@ -47,12 +47,16 @@ func shit() {
 
 			fmt.Printf(`"%s" `, y.Name)
 <<<<<<< HEAD
+<<<<<<< HEAD
 			fmt.Println(y.TweetVolume, "NEW TWEETS")
 =======
 	for _, t := range tweets { // TODO: parse tweet data
 		for _, m := range t.Entities.Media {
 			fmt.Println(m.MediaURL)
 >>>>>>> parent of a04e09d (twitter trends + exported GetTweets)
+=======
+			fmt.Println(y.TweetVolume, "NEW TWEETS \n")
+>>>>>>> parent of 4592dbb (finalized twitter API calls)
 =======
 			fmt.Println(y.TweetVolume, "NEW TWEETS \n")
 >>>>>>> parent of 4592dbb (finalized twitter API calls)
