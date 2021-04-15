@@ -1,5 +1,7 @@
 package twitter
 
+// OAuth2
+
 import (
 	"fmt"
 	"log"
@@ -12,7 +14,7 @@ import (
 
 var creds *viper.Viper
 
-func GetTweets(handle string) {
+func shit() {
 	// oauth2 configures a client that uses app credentials to keep a fresh token
 	config := &clientcredentials.Config{
 		ClientID:     creds.GetString("twitterapikey"),
@@ -27,33 +29,18 @@ func GetTweets(handle string) {
 	client := twitter.NewClient(httpClient)
 
 	user, _, err := client.Users.Show(&twitter.UserShowParams{
-		ScreenName: handle,
+		ScreenName: "chrizdashiz",
 	})
+
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	fmt.Println(user.ID) //https://pkg.go.dev/github.com/dghubble/go-twitter/twitter#MediaEntity
 	tweets, _, err := client.Timelines.UserTimeline(&twitter.UserTimelineParams{UserID: user.ID})
 	if err != nil {
 		log.Fatal(err)
 	}
-	for _, t := range tweets {
-		//parse tweet data
-		if t.RetweetedStatus == nil {
-			fmt.Println(t.CreatedAt)
-			fmt.Println(t.Text)
-			//print links
-			for _, m := range t.Entities.Media {
-				fmt.Println(m.MediaURL)
-			}
-			fmt.Printf("\n\n")
-		}
-	}
-
-	trendsList, _, err := client.Trends.Place(23424977, &twitter.TrendsPlaceParams{WOEID: 23424977})
-	if err != nil {
-		log.Fatal(err)
-	}
+<<<<<<< HEAD
 	//markov chain mapping each word of a tweet into the next word in the senctence
 	fmt.Printf("TRENDING TOPICS USA \n\n")
 	for _, x := range trendsList {
@@ -61,6 +48,11 @@ func GetTweets(handle string) {
 
 			fmt.Printf(`"%s" `, y.Name)
 			fmt.Println(y.TweetVolume, "NEW TWEETS")
+=======
+	for _, t := range tweets { // TODO: parse tweet data
+		for _, m := range t.Entities.Media {
+			fmt.Println(m.MediaURL)
+>>>>>>> parent of a04e09d (twitter trends + exported GetTweets)
 		}
 	}
 }
