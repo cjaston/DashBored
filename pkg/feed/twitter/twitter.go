@@ -21,7 +21,6 @@ func shit() {
 		ClientSecret: creds.GetString("twittersecret"),
 		TokenURL:     "https://api.twitter.com/oauth2/token",
 	}
-
 	// http.Client will automatically authorize Requests
 	httpClient := config.Client(oauth2.NoContext)
 
@@ -47,12 +46,16 @@ func shit() {
 		for _, y := range x.Trends {
 
 			fmt.Printf(`"%s" `, y.Name)
+<<<<<<< HEAD
 			fmt.Println(y.TweetVolume, "NEW TWEETS")
 =======
 	for _, t := range tweets { // TODO: parse tweet data
 		for _, m := range t.Entities.Media {
 			fmt.Println(m.MediaURL)
 >>>>>>> parent of a04e09d (twitter trends + exported GetTweets)
+=======
+			fmt.Println(y.TweetVolume, "NEW TWEETS \n")
+>>>>>>> parent of 4592dbb (finalized twitter API calls)
 		}
 	}
 }

@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 
@@ -10,8 +9,11 @@ import (
 )
 
 func main() {
+<<<<<<< HEAD
 	twitter.UserAuth()
 	fmt.Println("Enter a Twitter handle: ")
+=======
+>>>>>>> parent of 4592dbb (finalized twitter API calls)
 	reader := bufio.NewReader(os.Stdin)
 	instr, _, err := reader.ReadLine()
 	if err != nil {
